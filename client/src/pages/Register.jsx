@@ -33,10 +33,8 @@ export default function Register() {
         },
         body: JSON.stringify(formData),
       });
-      
-      // success
+
       const data = await res.json();
-      navigate('/login')
 
       if (!res.ok) {
         setError(data.message || 'An error occurred');
@@ -46,6 +44,7 @@ export default function Register() {
 
       setIsLoading(false);
       console.log(data);
+      navigate('/login');
     } catch (error) {
       setError('An unexpected error occurred');
       setIsLoading(false);
