@@ -1,4 +1,11 @@
 const express = require('express')
+const mongoose = require('mongoose')
+const dotenv = require('dotenv').config()
+
+mongoose
+    .connect(process.env.URI_MONGO)
+    .then(() => console.log('Connected to MongoDB'))
+    .catch((err) => console.log('DB connection error:', err))
 
 const app = express()
 
