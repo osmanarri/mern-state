@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv').config()
+const userRouter = require('./routes/user.route')
 
 mongoose
     .connect(process.env.URI_MONGO)
@@ -8,6 +9,8 @@ mongoose
     .catch((err) => console.log('DB connection error:', err))
 
 const app = express()
+
+app.use('/api/user', userRouter)
 
 app.listen(3000, () => {
     console.log(`Server is running on Port 3000!!`)
