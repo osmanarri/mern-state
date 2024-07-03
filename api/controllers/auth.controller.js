@@ -1,6 +1,6 @@
 const User = require('../models/user.model')
 const bcryptjs = require('bcryptjs')
-const { errorHandler } = require('../utils/error')
+const errorHandler = require('../utils/error')
 const jwt = require('jsonwebtoken')
 
 const register = async (req, res, next) => {
