@@ -5,9 +5,13 @@ const jwt = require('jsonwebtoken')
 
 const register = async (req, res, next) => {
     try {
+        // accept username, email, and password from the user
         const { username, email, password } = req.body
+        // hash the password
         const hashedPassword = bcryptjs.hashSync(password, 10)
+        // create the user
         const newUser = new User({ username, email, password: hashedPassword })
+        // save it in the DB
         await newUser.save()
         res.status(200).json({ message: 'User created successfully!'})
     } catch (error) {
