@@ -37,8 +37,6 @@ export default function Login() {
       const data = await res.json();
 
       if (!res.ok) {
-        // setError(data.message || 'An error occurred');
-        // setIsLoading(false);
         dispatch(loginFailure(data.message || 'An error occurred'))
         return;
       }
