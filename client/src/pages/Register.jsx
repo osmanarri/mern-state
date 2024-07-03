@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import OAuth from '../components/OAuth';
 
 export default function Register() {
   const [error, setError] = useState(null);
@@ -90,12 +91,14 @@ export default function Register() {
         >
           {isLoading ? 'Loading...' : 'Sign Up'}
         </button>
+        <OAuth/>
       </form>
       <div className="flex gap-2 mt-5">
         <p>Have an account?</p>
         <Link to="/login">
           <span className="text-blue-700">Login</span>
         </Link>
+        
       </div>
     </div>
   );

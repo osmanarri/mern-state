@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { loginStart, loginSuccess, loginFailure } from '../redux/user/userSlice';
+import OAuth from '../components/OAuth';
 
 export default function Login() {
   const { isLoading, error } = useSelector((state) => state.user); 
@@ -78,12 +79,14 @@ export default function Login() {
         >
           {isLoading ? 'Loading...' : 'Login'}
         </button>
+        <OAuth/>
       </form>
       <div className="flex gap-2 mt-5">
         <p>Do not have an account?</p>
         <Link to="/register">
           <span className="text-blue-700">Register</span>
         </Link>
+        
       </div>
     </div>
   );
